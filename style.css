@@ -1,0 +1,746 @@
+@charset "UTF-8";
+
+/* =========================================
+   Variables
+   ========================================= */
+:root {
+    --primary-color: #1e3a8a;    /* 濃い青 */
+    --secondary-color: #3b82f6;  /* ベース青 */
+    --accent-color: #eff6ff;     /* 極淡い青（背景など） */
+    --bg-color: #ffffff;         /* 白背景 */
+    --text-color: #334155;       /* 基本テキスト */
+    --text-light: #64748b;       /* 補助テキスト */
+    
+    --bg-gradient: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    --bg-gradient-alt: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+    
+    --font-main: 'M PLUS Rounded 1c', sans-serif;
+    
+    --radius-sm: 20px;
+    --radius-md: 32px;
+    --radius-lg: 40px;
+    
+    --shadow-soft: 0 10px 40px rgba(30, 58, 138, 0.08);
+    --shadow-hover: 0 15px 50px rgba(30, 58, 138, 0.15);
+    
+    --space-sm: 12px;
+    --space-md: 24px;
+    --space-lg: 40px;
+    --space-xl: 60px;
+}
+
+/* =========================================
+   Reset & Base
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.8;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================================
+   Animations
+   ========================================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* =========================================
+   Typography & Utilities
+   ========================================= */
+.section {
+    padding: var(--space-xl) 0;
+    position: relative;
+    background: var(--bg-color);
+}
+
+/* ノイズパターンのオーバーレイ */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* 色付き（青系）のごく薄いドットノイズ */
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1' fill='%231e3a8a' fill-opacity='0.02'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* セクションごとに背景色を切り替え */
+.section:nth-of-type(odd) {
+    background: var(--bg-gradient);
+}
+.section:nth-of-type(even) {
+    background: var(--bg-gradient-alt);
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 20px; /* 説明文の下の余白を縮める (12-20px) */
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px; /* タイトル下の余白 (16-24px) */
+    display: inline-block;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: #93c5fd; /* 薄い青ライン */
+}
+
+.section-sub {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
+}
+
+/* =========================================
+   Header
+   ========================================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: 0.5px;
+    padding: 6px 16px;
+    display: inline-block;
+}
+
+/* Mobile Nav Structure */
+.global-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.global-nav.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.global-nav ul {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 5%;
+}
+
+.global-nav li {
+    margin-bottom: 20px;
+}
+
+.global-nav a {
+    font-weight: 500;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.global-nav a:hover {
+    color: var(--secondary-color);
+}
+
+.nav-contact-btn {
+    background-color: #ef4444 !important; /* 赤色 */
+    color: #ffffff !important;
+    padding: 8px 24px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+    transition: all 0.3s ease;
+    display: inline-block !important; /* スマホ時のblock設定を上書き */
+    text-align: center;
+}
+
+.nav-contact-btn:hover {
+    background-color: #f87171 !important; /* ホバーで明るい赤 */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: block;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 9px; }
+.hamburger span:nth-child(3) { bottom: 0; }
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* =========================================
+   Hero Section
+   ========================================= */
+.hero {
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    background: var(--bg-gradient-alt);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1' fill='%231e3a8a' fill-opacity='0.02'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 1100px; /* フル幅に広げてインパクトを最大化 */
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: clamp(2.8rem, 10.5vw, 8rem); /* PCで特大・スマホで自動縮小 */
+    font-weight: 700;
+    color: #000; /* 黒でハッキリと */
+    margin-bottom: 32px; /* 日本語テキストとの間隔 */
+    line-height: 1.1;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 48px; /* ボタンとの余白バランス */
+}
+
+/* =========================================
+   Works
+   ========================================= */
+.works {
+    background-color: var(--bg-color);
+}
+
+.custom-slider {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 10px 5px 60px; /* ドットナビと影のための余白 */
+    touch-action: pan-y;
+}
+.slider-track {
+    display: flex;
+    will-change: transform;
+    cursor: grab;
+}
+.slider-track.grabbing {
+    cursor: grabbing;
+}
+.slide-item {
+    flex: 0 0 100%;
+    padding: 0 16px; /* カード間の間隔を広げる */
+    box-sizing: border-box;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+}
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.dot.active {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.work-card {
+    display: block;
+    background-color: #fff;
+    border-radius: 16px; /* 角丸を12〜16pxに */
+    border-top: 4px solid #2a4fa3; /* 青のアクセントラインを追加 */
+    padding: 24px 20px 20px; /* border-topを付けたので上余白を少し調整 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* 指定の弱い影 */
+    transition: all 0.3s ease;
+}
+
+.work-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06); /* ホバー時も上品な影に調整 */
+}
+
+.work-img {
+    border-radius: 12px; /* 外側のカード（16px）に合わせて子要素の角丸も少し小さく */
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-color: var(--accent-color);
+}
+
+.work-img img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.work-card:hover .work-img img {
+    transform: scale(1.05);
+}
+
+.work-info h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600; /* Font weight 600 に変更 */
+    text-align: center;
+}
+
+/* =========================================
+   About
+   ========================================= */
+.about {
+    background-color: var(--bg-color);
+}
+
+.about-card {
+    background-color: var(--accent-color);
+    padding: 40px 30px;
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.about-card p {
+    margin-bottom: 24px;
+}
+
+.about-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================
+   Flow
+   ========================================= */
+.flow {
+    background-color: var(--bg-color);
+}
+
+.flow-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px; /* スマホ時の縦並びの余白（margin-bottom相当）を24pxに */
+}
+
+.flow-card {
+    background-color: #fff;
+    border: 2px solid var(--accent-color);
+    border-radius: var(--radius-md);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.flow-card:hover {
+    border-color: var(--secondary-color);
+    box-shadow: var(--shadow-soft);
+}
+
+.flow-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600; /* フォントを600に調整して視認性を高める */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.flow-text h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600; /* タイトルを600に設定して視線が流れるようにする */
+    margin-bottom: 10px;
+}
+
+.flow-text p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+/* =========================================
+   FAQ
+   ========================================= */
+.faq {
+    background-color: var(--bg-color);
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.faq-card {
+    background-color: #fff;
+    border-radius: var(--radius-md);
+    padding: 30px;
+    box-shadow: var(--shadow-soft);
+}
+
+.faq-q, .faq-a {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.faq-q {
+    margin-bottom: 16px;
+}
+
+.q-icon, .a-icon {
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.q-icon {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.a-icon {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.faq-q h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-top: 2px;
+}
+
+.faq-a p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    margin-top: 4px;
+}
+
+/* =========================================
+   Contact
+   ========================================= */
+.contact.section {
+    background: #f5f5f7 !important; /* 淡い上品なグレー */
+}
+
+.contact-card {
+    background-color: #ffffff;      /* カードは白にして浮かせる */
+    padding: 60px 30px;             /* 十分な余白 */
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); /* 柔らかい影 */
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    color: #4b5563; /* 濃いグレーで見やすく */
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #f3f4f6;
+    border-radius: var(--radius-sm);
+    background-color: #fafafa;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #374151; /* 濃いグレー */
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #d64545; /* フォームのフォーカス色も赤系に合わせる */
+    box-shadow: 0 0 0 4px rgba(214, 69, 69, 0.1);
+    background-color: #fff;
+}
+
+.form-btn {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.form-btn .btn {
+    background-color: #d64545; /* 指定の赤色 */
+    box-shadow: 0 4px 15px rgba(214, 69, 69, 0.3);
+    padding: 18px 50px;
+}
+
+.form-btn .btn:hover {
+    background-color: #b73636; /* 少し暗め・濃い目の赤 */
+    box-shadow: 0 6px 20px rgba(214, 69, 69, 0.4);
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+.footer {
+    background-color: var(--bg-color);
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid var(--accent-color);
+}
+
+.footer p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   Responsive (Tablet PC)
+   ========================================= */
+@media screen and (min-width: 768px) {
+    .section {
+        padding: 80px 0; /* PC版は80pxにしてセクション間隔を最適化 */
+    }
+
+    /* Header */
+    .hamburger {
+        display: none;
+    }
+
+    .global-nav {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        background-color: transparent;
+        box-shadow: none;
+        transform: none;
+        width: auto;
+    }
+
+    .global-nav ul {
+        flex-direction: row;
+        padding: 0;
+        gap: 32px;
+    }
+
+    .global-nav li {
+        margin-bottom: 0;
+    }
+
+    .global-nav a {
+        font-size: 1rem;
+    }
+
+    /* Hero */
+    .hero-sub {
+        font-size: 1.3rem;
+    }
+
+    /* Works */
+    .slide-item {
+        flex: 0 0 50%;
+    }
+    /* About */
+    .about-card {
+        padding: 80px 60px;
+    }
+
+    /* Flow */
+    .flow-list {
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+        gap: 32px; /* タブレット時、横方向の余白を+8〜12px広げて呼吸感を持たせる */
+    }
+
+    .flow-card:last-child {
+        grid-column: 2 / 3;
+    }
+
+    /* FAQ */
+    .faq-card {
+        padding: 40px 50px;
+    }
+
+    .faq-q h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* Contact */
+    .contact-card {
+        padding: 60px 80px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .slide-item {
+        flex: 0 0 33.333%;
+    }
+    
+    .flow-list {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 28px; /* PC版も横方向の余白を十分に取り呼吸感を持たせる */
+    }
+    
+    .flow-card:last-child {
+        grid-column: auto;
+    }
+}
