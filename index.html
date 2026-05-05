@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,11 @@
     <!-- Google Fonts: M PLUS Rounded 1c -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- ヘッダー -->
@@ -49,43 +52,59 @@
                     <h2 class="section-title">制作実績</h2>
                     <p class="section-sub">これまでに制作した実績をご紹介します。</p>
                 </div>
-                
+
                 <!-- カスタムスライダー -->
                 <div class="custom-slider" id="works-slider">
                     <div class="slider-track" id="slider-track">
                         <!-- 1つ目 -->
                         <div class="slide-item">
-                            <a href="https://urban-closet.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
+                            <a href="https://urban-closet.vercel.app" class="work-card" target="_blank"
+                                rel="noopener noreferrer">
                                 <div class="work-img"><img src="images/urban-closet.avif" alt="URBAN CLOSET"></div>
-                                <div class="work-info"><h3>URBAN CLOSET</h3></div>
+                                <div class="work-info">
+                                    <h3>URBAN CLOSET</h3>
+                                </div>
                             </a>
                         </div>
                         <!-- 2つ目 -->
                         <div class="slide-item">
-                            <a href="https://hair-salon-riche.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
-                                <div class="work-img"><img src="images/hair-salon-riche.jpg" alt="Hair Salon RICHE"></div>
-                                <div class="work-info"><h3>Hair Salon RICHE</h3></div>
+                            <a href="https://hair-salon-riche.vercel.app" class="work-card" target="_blank"
+                                rel="noopener noreferrer">
+                                <div class="work-img"><img src="images/hair-salon-riche.jpg" alt="Hair Salon RICHE">
+                                </div>
+                                <div class="work-info">
+                                    <h3>Hair Salon RICHE</h3>
+                                </div>
                             </a>
                         </div>
                         <!-- 3つ目 -->
                         <div class="slide-item">
-                            <a href="https://trattoria-sole-three.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
+                            <a href="https://trattoria-sole-three.vercel.app" class="work-card" target="_blank"
+                                rel="noopener noreferrer">
                                 <div class="work-img"><img src="images/trattoria-sole.avif" alt="Trattoria SOLE"></div>
-                                <div class="work-info"><h3>Trattoria SOLE</h3></div>
+                                <div class="work-info">
+                                    <h3>Trattoria SOLE</h3>
+                                </div>
                             </a>
                         </div>
                         <!-- 4つ目 -->
                         <div class="slide-item">
-                            <a href="https://next-bridge.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
+                            <a href="https://next-bridge.vercel.app" class="work-card" target="_blank"
+                                rel="noopener noreferrer">
                                 <div class="work-img"><img src="images/next-bridge.avif" alt="NEXT BRIDGE"></div>
-                                <div class="work-info"><h3>NEXT BRIDGE</h3></div>
+                                <div class="work-info">
+                                    <h3>NEXT BRIDGE</h3>
+                                </div>
                             </a>
                         </div>
                         <!-- 5つ目 -->
                         <div class="slide-item">
-                            <a href="https://cafe-blossom.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
+                            <a href="https://cafe-blossom.vercel.app" class="work-card" target="_blank"
+                                rel="noopener noreferrer">
                                 <div class="work-img"><img src="images/cafe-blossom.jpg" alt="Cafe Blossom"></div>
-                                <div class="work-info"><h3>Cafe Blossom</h3></div>
+                                <div class="work-info">
+                                    <h3>Cafe Blossom</h3>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -231,7 +250,8 @@
                         </div>
                         <div class="form-group">
                             <label for="message">メッセージ</label>
-                            <textarea id="message" name="message" rows="6" required placeholder="お問い合わせ内容をご入力ください"></textarea>
+                            <textarea id="message" name="message" rows="6" required
+                                placeholder="お問い合わせ内容をご入力ください"></textarea>
                         </div>
                         <div class="form-btn">
                             <button type="submit" class="btn">送信する</button>
@@ -267,24 +287,24 @@
                 nav.classList.remove('active');
             });
         });
-        
+
         // スクロールフェードイン (IntersectionObserver)
         const observerOptions = {
             root: null,
             rootMargin: '0px',
             threshold: 0.1
         };
-        
+
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting) {
+                if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
                     // 一度表示されたら監視を解除（毎回アニメーションさせたい場合は削除）
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
-        
+
         document.querySelectorAll('.fade-in').forEach(element => {
             observer.observe(element);
         });
@@ -297,7 +317,7 @@
             const dotsContainer = document.getElementById('slider-dots');
             const originalSlides = Array.from(document.querySelectorAll('.slide-item'));
             const originalLength = originalSlides.length;
-            
+
             // ループ用に要素を複製 (前後にオリジナル要素数分をクローン)
             originalSlides.forEach(slide => {
                 let clone = slide.cloneNode(true);
@@ -309,7 +329,7 @@
                 clone.classList.add('clone-start');
                 track.insertBefore(clone, track.firstChild);
             });
-            
+
             const allSlides = Array.from(document.querySelectorAll('.slide-item'));
             let currentIndex = originalLength; // 開始位置（最初のオリジナル要素）
             let isDragging = false;
@@ -317,12 +337,12 @@
             let currentTranslate = 0;
             let prevTranslate = 0;
             let autoplayInterval;
-            
+
             // ドット生成
-            for(let i = 0; i < originalLength; i++) {
+            for (let i = 0; i < originalLength; i++) {
                 const dot = document.createElement('div');
                 dot.classList.add('dot');
-                if(i === 0) dot.classList.add('active');
+                if (i === 0) dot.classList.add('active');
                 dot.addEventListener('click', () => {
                     currentIndex = originalLength + i;
                     updateSlider();
@@ -331,18 +351,18 @@
                 dotsContainer.appendChild(dot);
             }
             const dots = document.querySelectorAll('.dot');
-            
+
             function getSlideWidth() {
                 return allSlides[0].offsetWidth;
             }
-            
+
             function updateDots() {
                 let dotIndex = (currentIndex - originalLength) % originalLength;
-                if(dotIndex < 0) dotIndex += originalLength;
+                if (dotIndex < 0) dotIndex += originalLength;
                 dots.forEach(d => d.classList.remove('active'));
                 dots[dotIndex].classList.add('active');
             }
-            
+
             function updateSlider(transition = true) {
                 track.style.transition = transition ? 'transform 0.5s ease-out' : 'none';
                 currentTranslate = -currentIndex * getSlideWidth();
@@ -350,7 +370,7 @@
                 track.style.transform = `translateX(${currentTranslate}px)`;
                 updateDots();
             }
-            
+
             // ループの境界チェック処理
             track.addEventListener('transitionend', () => {
                 const maxIndex = originalLength * 2;
@@ -364,13 +384,13 @@
                     updateSlider(false);
                 }
             });
-            
+
             // リサイズ時
             window.addEventListener('resize', () => {
                 track.style.transition = 'none';
                 updateSlider(false);
             });
-            
+
             // ドラッグ＆スワイプ処理
             track.addEventListener('mousedown', dragStart);
             track.addEventListener('touchstart', dragStart, { passive: true });
@@ -379,7 +399,7 @@
             track.addEventListener('touchend', dragEnd);
             track.addEventListener('mousemove', dragAction);
             track.addEventListener('touchmove', dragAction, { passive: true });
-            
+
             // PCドラッグ時のAタグリンク発火を防ぐ
             track.querySelectorAll('a').forEach(a => {
                 a.addEventListener('dragstart', (e) => e.preventDefault());
@@ -389,11 +409,11 @@
                     }
                 });
             });
-            
+
             function getPositionX(e) {
                 return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
             }
-            
+
             function dragStart(e) {
                 isDragging = true;
                 startPos = getPositionX(e);
@@ -401,7 +421,7 @@
                 stopAutoplay();
                 track.style.transition = 'none';
             }
-            
+
             function dragAction(e) {
                 if (!isDragging) return;
                 const currentPosition = getPositionX(e);
@@ -409,25 +429,25 @@
                 currentTranslate = prevTranslate + diff;
                 track.style.transform = `translateX(${currentTranslate}px)`;
             }
-            
+
             function dragEnd() {
                 if (!isDragging) return;
                 isDragging = false;
                 track.classList.remove('grabbing');
-                
+
                 const movedBy = currentTranslate - prevTranslate;
                 const threshold = getSlideWidth() / 4;
-                
+
                 if (movedBy < -threshold) {
                     currentIndex++;
                 } else if (movedBy > threshold) {
                     currentIndex--;
                 }
-                
+
                 updateSlider();
                 startAutoplay();
             }
-            
+
             function startAutoplay() {
                 stopAutoplay();
                 autoplayInterval = setInterval(() => {
@@ -435,20 +455,21 @@
                     updateSlider();
                 }, 3000);
             }
-            
+
             function stopAutoplay() {
                 clearInterval(autoplayInterval);
             }
-            
+
             function resetAutoplay() {
                 stopAutoplay();
                 startAutoplay();
             }
-            
+
             // 初期化
             updateSlider(false);
             startAutoplay();
         });
     </script>
 </body>
+
 </html>
