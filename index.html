@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yasu Portfolio</title>
     <meta name="description" content="丁寧に、速く。シンプルで見やすいWeb制作を。Yasuのポートフォリオサイトです。">
-    <!-- Google Fonts: M PLUS Rounded 1c -->
+    <!-- Google Fonts: Cormorant Garamond, Shippori Mincho, Noto Sans JP -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -39,7 +38,7 @@
         <!-- ヒーローセクション -->
         <section id="hero" class="hero">
             <div class="hero-content fade-in">
-                <h2 class="hero-title">Speed with Care.</h2>
+                <h2 class="hero-title">Speed <span>with</span> Care.</h2>
                 <p class="hero-sub">丁寧に、速く。<br>シンプルで見やすいWeb制作を。</p>
                 <a href="#works" class="btn hero-btn">制作実績を見る</a>
             </div>
@@ -53,63 +52,73 @@
                     <p class="section-sub">これまでに制作した実績をご紹介します。</p>
                 </div>
 
-                <!-- カスタムスライダー -->
-                <div class="custom-slider" id="works-slider">
-                    <div class="slider-track" id="slider-track">
-                        <!-- 1つ目 -->
-                        <div class="slide-item">
-                            <a href="https://urban-closet.vercel.app" class="work-card" target="_blank"
-                                rel="noopener noreferrer">
-                                <div class="work-img"><img src="images/urban-closet.avif" alt="URBAN CLOSET"></div>
-                                <div class="work-info">
-                                    <h3>URBAN CLOSET</h3>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- 2つ目 -->
-                        <div class="slide-item">
-                            <a href="https://hair-salon-riche.vercel.app" class="work-card" target="_blank"
-                                rel="noopener noreferrer">
-                                <div class="work-img"><img src="images/hair-salon-riche.jpg" alt="Hair Salon RICHE">
-                                </div>
-                                <div class="work-info">
-                                    <h3>Hair Salon RICHE</h3>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- 3つ目 -->
-                        <div class="slide-item">
-                            <a href="https://trattoria-sole-three.vercel.app" class="work-card" target="_blank"
-                                rel="noopener noreferrer">
-                                <div class="work-img"><img src="images/trattoria-sole.avif" alt="Trattoria SOLE"></div>
-                                <div class="work-info">
-                                    <h3>Trattoria SOLE</h3>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- 4つ目 -->
-                        <div class="slide-item">
-                            <a href="https://next-bridge.vercel.app" class="work-card" target="_blank"
-                                rel="noopener noreferrer">
-                                <div class="work-img"><img src="images/next-bridge.avif" alt="NEXT BRIDGE"></div>
-                                <div class="work-info">
-                                    <h3>NEXT BRIDGE</h3>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- 5つ目 -->
-                        <div class="slide-item">
-                            <a href="https://cafe-blossom.vercel.app" class="work-card" target="_blank"
-                                rel="noopener noreferrer">
-                                <div class="work-img"><img src="images/cafe-blossom.jpg" alt="Cafe Blossom"></div>
-                                <div class="work-info">
-                                    <h3>Cafe Blossom</h3>
-                                </div>
-                            </a>
-                        </div>
+            </div>
+
+            <!-- 無限スクロールスライダー (Marquee) -->
+            <div class="marquee-wrapper fade-in">
+                <div class="marquee-track">
+                    <!-- 1セット目 -->
+                    <div class="slide-item">
+                        <a href="https://urban-closet.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
+                            <div class="work-img"><img src="images/urban-closet.avif" alt="URBAN CLOSET"></div>
+                            <div class="work-info"><h3>URBAN CLOSET</h3></div>
+                        </a>
                     </div>
-                    <!-- ドットナビゲーション -->
-                    <div class="slider-dots" id="slider-dots"></div>
+                    <div class="slide-item">
+                        <a href="https://hair-salon-riche.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
+                            <div class="work-img"><img src="images/hair-salon-riche.jpg" alt="Hair Salon RICHE"></div>
+                            <div class="work-info"><h3>Hair Salon RICHE</h3></div>
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="https://trattoria-sole-three.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
+                            <div class="work-img"><img src="images/trattoria-sole.avif" alt="Trattoria SOLE"></div>
+                            <div class="work-info"><h3>Trattoria SOLE</h3></div>
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="https://next-bridge.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
+                            <div class="work-img"><img src="images/next-bridge.avif" alt="NEXT BRIDGE"></div>
+                            <div class="work-info"><h3>NEXT BRIDGE</h3></div>
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="https://cafe-blossom.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
+                            <div class="work-img"><img src="images/cafe-blossom.jpg" alt="Cafe Blossom"></div>
+                            <div class="work-info"><h3>Cafe Blossom</h3></div>
+                        </a>
+                    </div>
+                    <!-- 2セット目 (ループ用) -->
+                    <div class="slide-item">
+                        <a href="https://urban-closet.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
+                            <div class="work-img"><img src="images/urban-closet.avif" alt="URBAN CLOSET"></div>
+                            <div class="work-info"><h3>URBAN CLOSET</h3></div>
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="https://hair-salon-riche.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
+                            <div class="work-img"><img src="images/hair-salon-riche.jpg" alt="Hair Salon RICHE"></div>
+                            <div class="work-info"><h3>Hair Salon RICHE</h3></div>
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="https://trattoria-sole-three.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
+                            <div class="work-img"><img src="images/trattoria-sole.avif" alt="Trattoria SOLE"></div>
+                            <div class="work-info"><h3>Trattoria SOLE</h3></div>
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="https://next-bridge.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
+                            <div class="work-img"><img src="images/next-bridge.avif" alt="NEXT BRIDGE"></div>
+                            <div class="work-info"><h3>NEXT BRIDGE</h3></div>
+                        </a>
+                    </div>
+                    <div class="slide-item">
+                        <a href="https://cafe-blossom.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
+                            <div class="work-img"><img src="images/cafe-blossom.jpg" alt="Cafe Blossom"></div>
+                            <div class="work-info"><h3>Cafe Blossom</h3></div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -199,32 +208,77 @@
                 <div class="faq-list">
                     <div class="faq-card">
                         <div class="faq-q">
-                            <span class="q-icon">Q</span>
-                            <h3>納期はどれくらいですか？</h3>
+                            <div class="faq-q-text">
+                                <span class="q-icon">Q</span>
+                                <h3>相談だけでも可能ですか？</h3>
+                            </div>
+                            <span class="faq-toggle"></span>
                         </div>
                         <div class="faq-a">
-                            <span class="a-icon">A</span>
-                            <p>制作内容によって異なりますが、LPであれば7〜10日程度が目安です。<br>ヒアリング後に、より正確なスケジュールをご案内いたします。</p>
+                            <div class="faq-a-inner">
+                                <span class="a-icon">A</span>
+                                <p>はい、可能です。ご相談やお見積もりは無料で承っております。まずはお気軽にお悩みをお聞かせください。</p>
+                            </div>
                         </div>
                     </div>
                     <div class="faq-card">
                         <div class="faq-q">
-                            <span class="q-icon">Q</span>
-                            <h3>修正は可能ですか？</h3>
+                            <div class="faq-q-text">
+                                <span class="q-icon">Q</span>
+                                <h3>まだ内容が固まっていないのですが依頼できますか？</h3>
+                            </div>
+                            <span class="faq-toggle"></span>
                         </div>
                         <div class="faq-a">
-                            <span class="a-icon">A</span>
-                            <p>3回まで無料で対応しています。<br>「イメージと違った」「色味を調整したい」など、遠慮なくお申し付けください。</p>
+                            <div class="faq-a-inner">
+                                <span class="a-icon">A</span>
+                                <p>もちろん大丈夫です。丁寧なヒアリングを通じて、お客様の「こうしたい」というイメージを一緒に形にしていきますので、ご安心ください。</p>
+                            </div>
                         </div>
                     </div>
                     <div class="faq-card">
                         <div class="faq-q">
-                            <span class="q-icon">Q</span>
-                            <h3>デザインからお願いできますか？</h3>
+                            <div class="faq-q-text">
+                                <span class="q-icon">Q</span>
+                                <h3>制作期間はどれくらいかかりますか？</h3>
+                            </div>
+                            <span class="faq-toggle"></span>
                         </div>
                         <div class="faq-a">
-                            <span class="a-icon">A</span>
-                            <p>はい、可能です。<br>参考サイトやイメージを共有いただければ、ミニマルで見やすいデザインをご提案いたします。</p>
+                            <div class="faq-a-inner">
+                                <span class="a-icon">A</span>
+                                <p>制作する内容にもよりますが、おおよそ一週間から三週間ほどいただいております。お急ぎの場合は、スケジュールに合わせて柔軟に対応いたします。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q">
+                            <div class="faq-q-text">
+                                <span class="q-icon">Q</span>
+                                <h3>修正は何回まで可能ですか？</h3>
+                            </div>
+                            <span class="faq-toggle"></span>
+                        </div>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">
+                                <span class="a-icon">A</span>
+                                <p>基本的に3回まで無料で対応しております。それ以降も、ご納得いただけるまで誠実に対応させていただきますので、その都度ご相談ください。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q">
+                            <div class="faq-q-text">
+                                <span class="q-icon">Q</span>
+                                <h3>納品後のサポートはありますか？</h3>
+                            </div>
+                            <span class="faq-toggle"></span>
+                        </div>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">
+                                <span class="a-icon">A</span>
+                                <p>はい、ございます。納品した後に見つかった細かな修正や、操作の方法についての質問など、しっかりとお手伝いさせていただきます。</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -254,7 +308,9 @@
                                 placeholder="お問い合わせ内容をご入力ください"></textarea>
                         </div>
                         <div class="form-btn">
-                            <button type="submit" class="btn">送信する</button>
+                            <button type="submit" class="contact-submit-btn">
+                                送信する<span class="arrow">→</span>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -310,164 +366,23 @@
         });
     </script>
 
-    <!-- Vanilla JS スライダー実装 -->
     <script>
+        // FAQアコーディオン
         document.addEventListener('DOMContentLoaded', () => {
-            const track = document.getElementById('slider-track');
-            const dotsContainer = document.getElementById('slider-dots');
-            const originalSlides = Array.from(document.querySelectorAll('.slide-item'));
-            const originalLength = originalSlides.length;
-
-            // ループ用に要素を複製 (前後にオリジナル要素数分をクローン)
-            originalSlides.forEach(slide => {
-                let clone = slide.cloneNode(true);
-                clone.classList.add('clone-end');
-                track.appendChild(clone);
-            });
-            originalSlides.slice().reverse().forEach(slide => {
-                let clone = slide.cloneNode(true);
-                clone.classList.add('clone-start');
-                track.insertBefore(clone, track.firstChild);
-            });
-
-            const allSlides = Array.from(document.querySelectorAll('.slide-item'));
-            let currentIndex = originalLength; // 開始位置（最初のオリジナル要素）
-            let isDragging = false;
-            let startPos = 0;
-            let currentTranslate = 0;
-            let prevTranslate = 0;
-            let autoplayInterval;
-
-            // ドット生成
-            for (let i = 0; i < originalLength; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('dot');
-                if (i === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => {
-                    currentIndex = originalLength + i;
-                    updateSlider();
-                    resetAutoplay();
-                });
-                dotsContainer.appendChild(dot);
-            }
-            const dots = document.querySelectorAll('.dot');
-
-            function getSlideWidth() {
-                return allSlides[0].offsetWidth;
-            }
-
-            function updateDots() {
-                let dotIndex = (currentIndex - originalLength) % originalLength;
-                if (dotIndex < 0) dotIndex += originalLength;
-                dots.forEach(d => d.classList.remove('active'));
-                dots[dotIndex].classList.add('active');
-            }
-
-            function updateSlider(transition = true) {
-                track.style.transition = transition ? 'transform 0.5s ease-out' : 'none';
-                currentTranslate = -currentIndex * getSlideWidth();
-                prevTranslate = currentTranslate;
-                track.style.transform = `translateX(${currentTranslate}px)`;
-                updateDots();
-            }
-
-            // ループの境界チェック処理
-            track.addEventListener('transitionend', () => {
-                const maxIndex = originalLength * 2;
-                if (currentIndex >= maxIndex) {
-                    track.style.transition = 'none';
-                    currentIndex = currentIndex - originalLength;
-                    updateSlider(false);
-                } else if (currentIndex < originalLength) {
-                    track.style.transition = 'none';
-                    currentIndex = currentIndex + originalLength;
-                    updateSlider(false);
-                }
-            });
-
-            // リサイズ時
-            window.addEventListener('resize', () => {
-                track.style.transition = 'none';
-                updateSlider(false);
-            });
-
-            // ドラッグ＆スワイプ処理
-            track.addEventListener('mousedown', dragStart);
-            track.addEventListener('touchstart', dragStart, { passive: true });
-            track.addEventListener('mouseup', dragEnd);
-            track.addEventListener('mouseleave', dragEnd);
-            track.addEventListener('touchend', dragEnd);
-            track.addEventListener('mousemove', dragAction);
-            track.addEventListener('touchmove', dragAction, { passive: true });
-
-            // PCドラッグ時のAタグリンク発火を防ぐ
-            track.querySelectorAll('a').forEach(a => {
-                a.addEventListener('dragstart', (e) => e.preventDefault());
-                a.addEventListener('click', (e) => {
-                    if (Math.abs(currentTranslate - prevTranslate) > 5) {
-                        e.preventDefault();
+            const faqCards = document.querySelectorAll('.faq-card');
+            faqCards.forEach(card => {
+                const q = card.querySelector('.faq-q');
+                q.addEventListener('click', () => {
+                    // 現在の開閉状態を記憶
+                    const isActive = card.classList.contains('active');
+                    // まずすべてのカードを閉じる
+                    faqCards.forEach(c => c.classList.remove('active'));
+                    // クリックしたものが元々閉じていた場合のみ開く
+                    if (!isActive) {
+                        card.classList.add('active');
                     }
                 });
             });
-
-            function getPositionX(e) {
-                return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            }
-
-            function dragStart(e) {
-                isDragging = true;
-                startPos = getPositionX(e);
-                track.classList.add('grabbing');
-                stopAutoplay();
-                track.style.transition = 'none';
-            }
-
-            function dragAction(e) {
-                if (!isDragging) return;
-                const currentPosition = getPositionX(e);
-                const diff = currentPosition - startPos;
-                currentTranslate = prevTranslate + diff;
-                track.style.transform = `translateX(${currentTranslate}px)`;
-            }
-
-            function dragEnd() {
-                if (!isDragging) return;
-                isDragging = false;
-                track.classList.remove('grabbing');
-
-                const movedBy = currentTranslate - prevTranslate;
-                const threshold = getSlideWidth() / 4;
-
-                if (movedBy < -threshold) {
-                    currentIndex++;
-                } else if (movedBy > threshold) {
-                    currentIndex--;
-                }
-
-                updateSlider();
-                startAutoplay();
-            }
-
-            function startAutoplay() {
-                stopAutoplay();
-                autoplayInterval = setInterval(() => {
-                    currentIndex++;
-                    updateSlider();
-                }, 3000);
-            }
-
-            function stopAutoplay() {
-                clearInterval(autoplayInterval);
-            }
-
-            function resetAutoplay() {
-                stopAutoplay();
-                startAutoplay();
-            }
-
-            // 初期化
-            updateSlider(false);
-            startAutoplay();
         });
     </script>
 </body>
