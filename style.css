@@ -482,6 +482,60 @@ img {
 }
 
 /* =========================================
+   Pricing
+   ========================================= */
+.pricing-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.pricing-card {
+    background-color: var(--bg-surface-alt);
+    border: 1px solid var(--border-color);
+    padding: 40px 30px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.pricing-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+}
+
+.pricing-card h3 {
+    font-family: var(--font-heading-ja);
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+}
+
+.pricing-card .price {
+    font-family: var(--font-heading-en);
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.pricing-card .desc {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.pricing-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 30px;
+}
+
+/* =========================================
    FAQ
    ========================================= */
 .faq-list {
@@ -748,6 +802,12 @@ img {
     }
     .flow-card:last-child {
         grid-column: 2 / 3;
+    }
+
+    /* Pricing */
+    .pricing-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
     }
 
     /* FAQ */
