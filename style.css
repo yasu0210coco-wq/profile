@@ -66,16 +66,8 @@ img {
 /* =========================================
    Animations
    ========================================= */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.fade-in.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* フェードインの初期状態・アニメーションはGSAP(script.js)が付与する。
+   JS未読込時もコンテンツが見えるよう、CSS側では非表示にしない。 */
 
 /* =========================================
    Typography & Utilities
@@ -117,6 +109,59 @@ img {
     color: var(--text-light);
     font-family: var(--font-body);
     letter-spacing: 0.1em;
+}
+
+/* =========================================
+   Custom Cursor
+   ========================================= */
+body.custom-cursor-active,
+body.custom-cursor-active a,
+body.custom-cursor-active button {
+    cursor: none;
+}
+
+.cursor-dot,
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 9999;
+}
+
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-color);
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.25s ease;
+}
+
+.cursor-dot.is-hovering {
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.cursor-ring {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--primary-color);
+    background-color: transparent;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+.cursor-ring.is-hovering {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(173, 143, 92, 0.12);
+}
+
+@media (max-width: 767px) {
+    .cursor-dot,
+    .cursor-ring {
+        display: none;
+    }
 }
 
 .btn {
@@ -297,6 +342,16 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+#hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
     pointer-events: none;
 }
 
