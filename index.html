@@ -338,7 +338,7 @@
                     <p class="section-sub">ご相談やお見積りは無料です。お気軽にどうぞ。</p>
                 </div>
                 <div class="contact-card">
-                    <form action="https://formspree.io/f/xlgawkgn" method="POST">
+                    <form id="contact-form" action="https://formspree.io/f/xlgawkgn" method="POST">
                         <div class="form-group">
                             <label for="name">お名前</label>
                             <input type="text" id="name" name="name" required placeholder="例：山田 太郎">
@@ -352,12 +352,17 @@
                             <textarea id="message" name="message" rows="6" required
                                 placeholder="お問い合わせ内容をご入力ください"></textarea>
                         </div>
+                        <p class="form-feedback form-feedback-error" id="contact-form-error" role="alert" hidden></p>
                         <div class="form-btn">
-                            <button type="submit" class="contact-submit-btn">
-                                送信する<span class="arrow">→</span>
+                            <button type="submit" class="contact-submit-btn" id="contact-submit-btn">
+                                <span class="btn-label">送信する<span class="arrow">→</span></span>
                             </button>
                         </div>
                     </form>
+                    <div class="form-feedback form-feedback-success" id="contact-form-success" role="status" hidden>
+                        <strong>お問い合わせありがとうございました。</strong>
+                        内容を確認の上、2営業日以内にご連絡いたします。
+                    </div>
                 </div>
             </div>
         </section>

@@ -800,6 +800,41 @@ body.custom-cursor-active button {
     transform: translateX(3px);
 }
 
+.contact-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.form-feedback-error {
+    margin-bottom: 30px;
+    padding: 16px 20px;
+    background-color: #fbeceb;
+    border: 1px solid #e6c2be;
+    border-radius: var(--radius-sm);
+    color: #a13d33;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.form-feedback-success {
+    text-align: center;
+    padding: 20px 10px 10px;
+    font-family: var(--font-body);
+    color: var(--text-color);
+    line-height: 1.9;
+}
+
+.form-feedback-success strong {
+    display: block;
+    font-family: var(--font-heading-ja);
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
 /* =========================================
    Footer
    ========================================= */

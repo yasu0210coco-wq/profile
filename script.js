@@ -40,6 +40,49 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =========================================
+   Contact Form (Ajax submission via Formspree)
+   ========================================= */
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    const submitBtn = document.getElementById('contact-submit-btn');
+    const btnLabel = submitBtn.querySelector('.btn-label');
+    const errorBox = document.getElementById('contact-form-error');
+    const successBox = document.getElementById('contact-form-success');
+    const defaultLabelHTML = btnLabel.innerHTML;
+
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        errorBox.hidden = true;
+        submitBtn.disabled = true;
+        btnLabel.textContent = '送信中...';
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: new FormData(contactForm)
+            });
+
+            if (response.ok) {
+                contactForm.reset();
+                contactForm.hidden = true;
+                successBox.hidden = false;
+            } else {
+                errorBox.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+                errorBox.hidden = false;
+            }
+        } catch (error) {
+            errorBox.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+            errorBox.hidden = false;
+        } finally {
+            submitBtn.disabled = false;
+            btnLabel.innerHTML = defaultLabelHTML;
+        }
+    });
+}
+
+/* =========================================
    GSAP Scroll Animations
    ========================================= */
 if (window.gsap) {
