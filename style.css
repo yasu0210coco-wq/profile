@@ -471,6 +471,110 @@ body.custom-cursor-active button {
     letter-spacing: 0.1em;
 }
 
+/* Works: 詳細カード */
+.works-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.work-detail-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-surface-alt);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.work-detail-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+}
+
+.work-detail-img {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16/9;
+    background-color: #f9f9f9;
+}
+
+.work-detail-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.work-detail-card:hover .work-detail-img img {
+    transform: scale(1.05);
+}
+
+.work-detail-body {
+    padding: 30px;
+}
+
+.work-detail-body h3 {
+    font-family: var(--font-heading-en);
+    font-size: 1.4rem;
+    color: var(--text-color);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+}
+
+.work-target {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 4px 14px;
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+}
+
+.work-points {
+    margin-bottom: 28px;
+}
+
+.work-points li {
+    font-size: 0.92rem;
+    color: var(--text-light);
+    line-height: 1.9;
+    margin-bottom: 8px;
+}
+
+.work-points li:last-child {
+    margin-bottom: 0;
+}
+
+.work-points li span {
+    display: inline-block;
+    font-family: var(--font-heading-ja);
+    font-size: 0.82rem;
+    color: var(--text-color);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 2px 10px;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.work-detail-btn {
+    padding: 12px 32px;
+    font-size: 0.9rem;
+}
+
+.work-detail-btn .arrow {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.work-detail-btn:hover .arrow {
+    transform: translateX(3px);
+}
+
 /* =========================================
    About
    ========================================= */
@@ -536,6 +640,14 @@ body.custom-cursor-active button {
     color: var(--text-light);
 }
 
+.flow-note {
+    display: inline-block;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
 /* =========================================
    Pricing
    ========================================= */
@@ -581,6 +693,15 @@ body.custom-cursor-active button {
     font-size: 0.95rem;
     color: var(--text-light);
     line-height: 1.8;
+}
+
+.pricing-tag {
+    font-size: 0.82rem;
+    color: var(--primary-color);
+    line-height: 1.7;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border-color);
 }
 
 .pricing-note {
@@ -884,6 +1005,7 @@ body.custom-cursor-active button {
 
     /* Works */
     .slide-item { width: 33.333vw; padding: 0 15px; }
+    .works-detail-grid { grid-template-columns: repeat(2, 1fr); }
 
     /* Flow */
     .flow-list {
@@ -912,4 +1034,5 @@ body.custom-cursor-active button {
     .slide-item { width: 20vw; padding: 0 15px; }
     .flow-list { grid-template-columns: repeat(5, 1fr); }
     .flow-card:last-child { grid-column: auto; }
+    .works-detail-grid { grid-template-columns: repeat(3, 1fr); }
 }
