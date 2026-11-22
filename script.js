@@ -1,47 +1,3 @@
-import * as THREE from 'three';
-
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-/* =========================================
-   Mobile Navigation
-   ========================================= */
-const hamburger = document.querySelector('.hamburger');
-const nav = document.querySelector('.global-nav');
-const navLinks = document.querySelectorAll('.global-nav a');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    nav.classList.toggle('active');
-});
-
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        nav.classList.remove('active');
-    });
-});
-
-/* =========================================
-   FAQ Accordion
-   ========================================= */
-document.addEventListener('DOMContentLoaded', () => {
-    const faqCards = document.querySelectorAll('.faq-card');
-    faqCards.forEach(card => {
-        const q = card.querySelector('.faq-q');
-        q.addEventListener('click', () => {
-            const isActive = card.classList.contains('active');
-            faqCards.forEach(c => c.classList.remove('active'));
-            if (!isActive) {
-                card.classList.add('active');
-            }
-        });
-    });
-});
-
-/* =========================================
-   Contact Form (Ajax submission via Formspree)
-   ========================================= */
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     const submitBtn = document.getElementById('contact-submit-btn');
@@ -82,205 +38,169 @@ if (contactForm) {
     });
 }
 
-/* =========================================
-   GSAP Scroll Animations
-   ========================================= */
-if (window.gsap) {
-    gsap.registerPlugin(ScrollTrigger);
+const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+const canvas = document.querySelector('#flower');
+const ctx = canvas.getContext('2d');
+const toggle = document.querySelector('#motion');
+let moving = !reduced.matches;
+let visible = true;
+let tick = 0;
+let time = 0;
+let previous = 0;
 
-    if (!prefersReducedMotion) {
-        // 汎用フェードイン（セクション見出し・単体ブロック）
-        document.querySelectorAll('.fade-in').forEach(el => {
-            gsap.fromTo(el,
-                { opacity: 0, y: 40 },
-                {
-                    opacity: 1, y: 0, duration: 1.2, ease: 'power3.out',
-                    scrollTrigger: { trigger: el, start: 'top 85%', once: true }
-                }
-            );
-        });
-
-        // カード群のスタッガー表示
-        ['.flow-list', '.pricing-list', '.faq-list'].forEach(sel => {
-            const container = document.querySelector(sel);
-            if (!container) return;
-            gsap.fromTo(container.children,
-                { opacity: 0, y: 30 },
-                {
-                    opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out',
-                    scrollTrigger: { trigger: container, start: 'top 85%', once: true }
-                }
-            );
-        });
-
-        // セクションタイトルの一文字ずつリビール
-        document.querySelectorAll('.section-title').forEach(title => {
-            const text = title.textContent;
-            title.setAttribute('aria-label', text);
-            title.innerHTML = '';
-            const inner = document.createElement('span');
-            inner.setAttribute('aria-hidden', 'true');
-            [...text].forEach(char => {
-                const span = document.createElement('span');
-                span.textContent = char === ' ' ? ' ' : char;
-                span.style.display = 'inline-block';
-                inner.appendChild(span);
-            });
-            title.appendChild(inner);
-
-            gsap.fromTo(inner.children,
-                { opacity: 0, y: 20 },
-                {
-                    opacity: 1, y: 0, duration: 0.6, stagger: 0.03, ease: 'power2.out',
-                    scrollTrigger: { trigger: title, start: 'top 88%', once: true }
-                }
-            );
-        });
-
-        // ヒーロー登場アニメーション
-        gsap.timeline({ defaults: { ease: 'power3.out' } })
-            .from('.hero-title', { opacity: 0, y: 30, duration: 1.2 })
-            .from('.hero-sub', { opacity: 0, y: 20, duration: 1 }, '-=0.7')
-            .from('.hero-btn', { opacity: 0, y: 20, duration: 1 }, '-=0.6');
-
-        // ヒーローのパララックス
-        const heroSection = document.querySelector('.hero');
-        if (heroSection && isFinePointer) {
-            heroSection.addEventListener('mousemove', (e) => {
-                const x = (e.clientX / window.innerWidth - 0.5) * 20;
-                const y = (e.clientY / window.innerHeight - 0.5) * 20;
-                gsap.to('.hero-content', { x, y, duration: 0.6, ease: 'power2.out' });
-            });
-            heroSection.addEventListener('mouseleave', () => {
-                gsap.to('.hero-content', { x: 0, y: 0, duration: 0.8, ease: 'power2.out' });
-            });
+function flower(x, y, size, angle, phase) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(angle);
+    ctx.scale(size, size * .90);
+    for (let i = 0; i < 6; i++) {
+        ctx.save();
+        ctx.rotate(i * Math.PI / 3 + Math.sin(phase + i) * .025);
+        const length = .90 + .12 * Math.cos(i * 2);
+        ctx.scale(1, length);
+        const silk = ctx.createLinearGradient(-.28, -.8, .28, -.35);
+        for (const [position, color] of [[0,'#827851'],[.20,'#d5cda4'],[.48,'#fffbe4'],[.58,'#fff9d9'],[.66,'#d5c394'],[1,'#746744']]) silk.addColorStop(position,color);
+        ctx.fillStyle = silk;
+        ctx.beginPath();
+        ctx.moveTo(0,.04);
+        ctx.bezierCurveTo(-.18,-.19,-.35,-.50,-.21,-.76);
+        ctx.bezierCurveTo(-.14,-.91,.04,-.95,.08,-1.12);
+        ctx.bezierCurveTo(.12,-.89,.38,-.69,.22,-.42);
+        ctx.bezierCurveTo(.14,-.21,.06,-.10,0,.04);
+        ctx.fill();
+        ctx.strokeStyle = '#ac956642';
+        ctx.lineWidth = .004;
+        for (let n=-3;n<=3;n++) {
+            ctx.beginPath();
+            ctx.moveTo(0,-.06);
+            ctx.bezierCurveTo(n*.019,-.36,n*.082,-.73,.077,-1.06);
+            ctx.stroke();
         }
-
-        // マグネットボタン
-        if (isFinePointer) {
-            document.querySelectorAll('.btn, .contact-submit-btn').forEach(btn => {
-                btn.addEventListener('mousemove', (e) => {
-                    const rect = btn.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-                    gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.3, ease: 'power2.out' });
-                });
-                btn.addEventListener('mouseleave', () => {
-                    gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
-                });
-            });
-        }
+        ctx.restore();
     }
+    for(let i=0;i<6;i++){
+        const dx=Math.sin(i*1.4)*.18, dy=-.12-i*.032;
+        ctx.beginPath();ctx.moveTo(0,0);ctx.quadraticCurveTo(dx*.25,-.13,dx,dy);
+        ctx.lineWidth=.012;ctx.strokeStyle='#bc9438';ctx.stroke();
+        ctx.fillStyle='#a96c19';ctx.beginPath();ctx.ellipse(dx,dy,.036,.014,i*.48,0,2*Math.PI);ctx.fill();
+    }
+    ctx.restore();
 }
 
-/* =========================================
-   Custom Cursor
-   ========================================= */
-if (isFinePointer && !prefersReducedMotion) {
-    document.body.classList.add('custom-cursor-active');
-
-    const dot = document.createElement('div');
-    dot.className = 'cursor-dot';
-    const ring = document.createElement('div');
-    ring.className = 'cursor-ring';
-    document.body.append(dot, ring);
-
-    let mouseX = -100, mouseY = -100;
-    let ringX = -100, ringY = -100;
-
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        dot.style.left = `${mouseX}px`;
-        dot.style.top = `${mouseY}px`;
-    });
-
-    (function animateRing() {
-        ringX += (mouseX - ringX) * 0.15;
-        ringY += (mouseY - ringY) * 0.15;
-        ring.style.left = `${ringX}px`;
-        ring.style.top = `${ringY}px`;
-        requestAnimationFrame(animateRing);
-    })();
-
-    const hoverTargets = document.querySelectorAll('a, button, input, textarea, .work-card, .faq-q');
-    hoverTargets.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            ring.classList.add('is-hovering');
-            dot.classList.add('is-hovering');
-        });
-        el.addEventListener('mouseleave', () => {
-            ring.classList.remove('is-hovering');
-            dot.classList.remove('is-hovering');
-        });
-    });
+function draw(now=0){
+    cancelAnimationFrame(tick);
+    if(previous && moving) time+=Math.min(now-previous,60)*.00045;
+    previous=now;
+    const w=canvas.clientWidth,h=canvas.clientHeight,d=Math.min(devicePixelRatio,2);
+    if(canvas.width!==Math.round(w*d)||canvas.height!==Math.round(h*d)){
+        canvas.width=Math.round(w*d);canvas.height=Math.round(h*d);
+    }
+    ctx.setTransform(d,0,0,d,0,0);
+    ctx.clearRect(0,0,w,h);
+    const narrow=w<=720, x=w*(narrow?.70:.73), y=h*(narrow?.22:.49), size=Math.min(w*(narrow?.27:.20),h*.37);
+    for(let i=0;i<38;i++){
+        const px=w*((Math.sin(i*913.2)*435.8)%1+1)%w;
+        const py=((i*.618+time*.007)%1)*h;
+        ctx.fillStyle='rgba(252,222,160,'+(.10+.10*Math.sin(i+time))+')';
+        ctx.beginPath();ctx.arc(px,py,1+i%3,0,2*Math.PI);ctx.fill();
+    }
+    flower(x+size*.78,y-size*.67,size*.35,1.4,time);
+    flower(x,y,size,-.48+.045*Math.sin(time),time);
+    flower(x+size*.7,y+size*.64,size*.43,.5,time+.7);
+    toggle.textContent=moving?'演出を停止':'演出を再生';
+    toggle.setAttribute('aria-label',toggle.textContent);
+    if(moving && visible && !document.hidden) tick=requestAnimationFrame(draw);
 }
+toggle.onclick=()=>{moving=!moving;previous=0;draw()};
+reduced.addEventListener('change',()=>{moving=!reduced.matches;draw()});
+new ResizeObserver(()=>draw()).observe(canvas);
+new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;previous=0;draw()}).observe(canvas);
+document.addEventListener('visibilitychange',()=>{previous=0;draw()});
 
-/* =========================================
-   Three.js Hero Particle Background
-   ========================================= */
-(function initHeroCanvas() {
-    const canvas = document.getElementById('hero-canvas');
-    if (!canvas || prefersReducedMotion) return;
+document.querySelector('#ratio').onchange=event=>{
+    document.querySelector('#frame').style.aspectRatio=event.target.value;
+};
+const play = document.querySelector('#play');
+const film = document.querySelector('#campaign-film');
+play.onclick = async () => {
+    if (!film.paused) return film.pause();
+    if (film.ended) film.currentTime = 0;
+    try { await film.play(); } catch { play.textContent = '再生を再試行'; }
+};
+film.addEventListener('playing', () => { play.textContent = '広告を一時停止'; });
+film.addEventListener('pause', () => { play.textContent = '広告を再開'; });
+film.addEventListener('ended', () => { play.textContent = 'もう一度再生'; });
 
-    const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 350 : 900;
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.z = 8;
-
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-    const geometry = new THREE.BufferGeometry();
-    const positions = new Float32Array(particleCount * 3);
-    for (let i = 0; i < particleCount; i++) {
-        positions[i * 3] = (Math.random() - 0.5) * 16;
-        positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
-        positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
-    }
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-    const material = new THREE.PointsMaterial({
-        color: 0xad8f5c,
-        size: 0.035,
-        transparent: true,
-        opacity: 0.55,
-        sizeAttenuation: true
+document.addEventListener('click', event => {
+    const current = event.target.closest('details');
+    document.querySelectorAll('details[open]').forEach(panel => {
+        if (panel !== current) panel.open = false;
     });
+});
 
-    const points = new THREE.Points(geometry, material);
-    scene.add(points);
-
-    let targetRotX = 0;
-    let targetRotY = 0;
-    if (isFinePointer) {
-        window.addEventListener('mousemove', (e) => {
-            targetRotY = (e.clientX / window.innerWidth - 0.5) * 0.3;
-            targetRotX = (e.clientY / window.innerHeight - 0.5) * 0.2;
-        });
+const reveal = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('arrived');
+            reveal.unobserve(entry.target);
+        }
     }
+});
+document.querySelectorAll('.work-detail-card, .duo article, section > h2').forEach(el => reveal.observe(el));
 
-    let isVisible = true;
-    const io = new IntersectionObserver((entries) => {
-        isVisible = entries[0].isIntersecting;
-    });
-    io.observe(canvas);
+const services = {design:'デザイン・Web制作',motion:'広告動画',app:'アプリ開発'};
+const requestedService = services[new URLSearchParams(location.search).get('service')];
+if (requestedService) document.querySelector('#service').value = requestedService;
 
-    function animate() {
-        requestAnimationFrame(animate);
-        if (!isVisible) return;
-        points.rotation.y += (targetRotY - points.rotation.y) * 0.02 + 0.0006;
-        points.rotation.x += (targetRotX - points.rotation.x) * 0.02;
-        renderer.render(scene, camera);
+const rail = document.querySelector('.rail');
+const sequence = rail.querySelector('.sequence');
+const duplicate = sequence.cloneNode(true);
+duplicate.setAttribute('aria-hidden','true');
+duplicate.querySelectorAll('a').forEach(link=>link.tabIndex=-1);
+rail.querySelector('.track').append(duplicate);
+let railPaused = reduced.matches;
+let railVisible = false;
+let railTask = 0;
+let railTime = 0;
+let position = 0;
+let hovering = false;
+let touching = false;
+function labelRail(){
+    document.querySelector('#railPause').textContent=railPaused?'一覧を再生':'一覧を停止';
+}
+function runRail(now){
+    if(railTime) position+=Math.min(60,now-railTime)*.035;
+    position%=sequence.offsetWidth;
+    rail.scrollLeft=position;
+    railTime=now;
+    railTask=requestAnimationFrame(runRail);
+}
+function syncRail(){
+    cancelAnimationFrame(railTask);
+    railTime=0;
+    position=rail.scrollLeft;
+    if(railVisible && !document.hidden && !railPaused && !hovering && !touching && !rail.contains(document.activeElement)){
+        railTask=requestAnimationFrame(runRail);
     }
-    animate();
-
-    window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-})();
+    labelRail();
+}
+document.querySelector('#railPause').onclick=()=>{railPaused=!railPaused;syncRail()};
+function stepRail(direction){
+    const step=sequence.children[1].offsetLeft-sequence.children[0].offsetLeft;
+    const width=sequence.offsetWidth;
+    rail.scrollLeft=(rail.scrollLeft + direction*step + width)%width;
+    syncRail();
+}
+document.querySelector('#back').onclick=()=>stepRail(-1);
+document.querySelector('#forward').onclick=()=>stepRail(1);
+rail.addEventListener('pointerenter',e=>{hovering=e.pointerType==='mouse';syncRail()});
+rail.addEventListener('pointerleave',()=>{hovering=false;syncRail()});
+rail.addEventListener('touchstart',()=>{touching=true;syncRail()},{passive:true});
+rail.addEventListener('touchend',()=>{touching=false;syncRail()},{passive:true});
+rail.addEventListener('touchcancel',()=>{touching=false;syncRail()});
+rail.addEventListener('focusin',syncRail);
+rail.addEventListener('focusout',()=>requestAnimationFrame(syncRail));
+reduced.addEventListener('change',()=>{railPaused=reduced.matches;syncRail()});
+document.addEventListener('visibilitychange',syncRail);
+new IntersectionObserver(([e])=>{railVisible=e.isIntersecting;syncRail()}).observe(rail);
+labelRail();

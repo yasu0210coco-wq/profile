@@ -1,133 +1,14 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yasu Portfolio</title>
-    <meta name="description" content="丁寧に、速く。シンプルで見やすいWeb制作を。Yasuのポートフォリオサイトです。">
-    <!-- Google Fonts: Cormorant Garamond, Shippori Mincho, Noto Sans JP -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-    <!-- ヘッダー -->
-    <header class="header">
-        <div class="header-inner">
-            <h1 class="logo"><a href="#">Yasu</a></h1>
-            <nav class="global-nav">
-                <ul>
-                    <li><a href="#works">制作サンプル</a></li>
-                    <li><a href="#about">自己紹介</a></li>
-                    <li><a href="#flow">制作の流れ</a></li>
-                    <li><a href="#pricing">料金目安</a></li>
-                    <li><a href="#faq">よくある質問</a></li>
-                    <li><a href="#contact" class="nav-contact-btn">お問い合わせ</a></li>
-                </ul>
-            </nav>
-            <div class="hamburger">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <!-- ヒーローセクション -->
-        <section id="hero" class="hero">
-            <canvas id="hero-canvas" aria-hidden="true"></canvas>
-            <div class="hero-content">
-                <h2 class="hero-title">Speed <span>with</span> Care.</h2>
-                <p class="hero-sub">丁寧に、速く。<br>シンプルで見やすいWeb制作を。</p>
-                <a href="#works" class="btn hero-btn">制作サンプルを見る</a>
-            </div>
-        </section>
-
-        <!-- 制作サンプル (Works) -->
-        <section id="works" class="works section">
-            <div class="container fade-in">
-                <div class="section-header">
-                    <h2 class="section-title">制作サンプル</h2>
-                    <p class="section-sub">ターゲットやデザイン意図を明確にした上で制作した、制作サンプルサイトです。</p>
-                </div>
-
-            </div>
-
-            <!-- 無限スクロールスライダー (Marquee) -->
-            <div class="marquee-wrapper fade-in">
-                <div class="marquee-track">
-                    <!-- 1セット目 -->
-                    <div class="slide-item">
-                        <a href="https://urban-closet.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
-                            <div class="work-img"><img src="images/urban-closet.avif" alt=""></div>
-                            <div class="work-info"><h3>URBAN CLOSET</h3></div>
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Yasu — デザイン・広告動画・アプリ開発</title><meta name="description" content="北海道を拠点に活動するYasuの作品集。Webデザイン、広告モーション、アプリの試作を体験できます。"><link rel="stylesheet" href="style.css"><body><header><a class="logo" href="#top">Yasu<span>✳</span></a><nav><a href="#featured">作品</a><a href="#studio">自己紹介</a><a class="pill" href="#contact">制作の相談</a></nav></header><main id="top"><section class="hero"><canvas id="flower" aria-hidden="true"></canvas><div class="heroText"><small>YASU　/　CREATIVE PORTFOLIO</small><h1>Design<br><i>in bloom.</i></h1><p>デザイン、広告動画、アプリ開発。<br>届けたいものに、ふさわしい表現を。</p><a class="primary" href="#featured">代表作を見る</a></div><button id="motion" type="button" aria-label="花の動きを一時停止">演出を停止</button></section><section class="paper featured" id="featured"><small>FEATURED WORK</small><h2>代表作</h2><div class="leadPair"><article class="leadCase" id="fleur-case"><video class="campaign-film" id="campaign-film" controls playsinline muted preload="none" poster="works/fleur/media/film-poster.jpg" aria-label="Fleurの6秒広告。朝露、白いユリ、琥珀色の香水瓶へと移る無音映像"><source src="works/fleur/media/fleur-film.mp4" type="video/mp4"></video><small>広告映像・商品LP</small><h3>Fleur.</h3><p>葉先の朝露から白いユリへ、最後に香水瓶へ。6秒の無音広告で香りを先に想像させ、商品ページで香りの変化をたどれるようにしました。</p><button type="button" id="play" aria-controls="campaign-film">6秒の広告を再生</button> <a class="caseLink" href="works/fleur/index.html">商品のLPを見る</a></article><article id="web-1" class="leadCase">
+                        <a href="https://hair-salon-riche.vercel.app" class="work-detail-img" target="_blank" rel="noopener noreferrer">
+                            <img src="images/hair-salon-riche.jpg" alt="Hair Salon RICHE サイトキャプチャ">
                         </a>
-                    </div>
-                    <div class="slide-item">
-                        <a href="https://hair-salon-riche.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
-                            <div class="work-img"><img src="images/hair-salon-riche.jpg" alt=""></div>
-                            <div class="work-info"><h3>Hair Salon RICHE</h3></div>
-                        </a>
-                    </div>
-                    <div class="slide-item">
-                        <a href="https://trattoria-sole-three.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
-                            <div class="work-img"><img src="images/trattoria-sole.avif" alt=""></div>
-                            <div class="work-info"><h3>Trattoria SOLE</h3></div>
-                        </a>
-                    </div>
-                    <div class="slide-item">
-                        <a href="https://next-bridge.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
-                            <div class="work-img"><img src="images/next-bridge.avif" alt=""></div>
-                            <div class="work-info"><h3>NEXT BRIDGE</h3></div>
-                        </a>
-                    </div>
-                    <div class="slide-item">
-                        <a href="https://cafe-blossom.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
-                            <div class="work-img"><img src="images/cafe-blossom.jpg" alt=""></div>
-                            <div class="work-info"><h3>Cafe Blossom</h3></div>
-                        </a>
-                    </div>
-                    <!-- 2セット目 (ループ用) -->
-                    <div class="slide-item">
-                        <a href="https://urban-closet.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
-                            <div class="work-img"><img src="images/urban-closet.avif" alt=""></div>
-                            <div class="work-info"><h3>URBAN CLOSET</h3></div>
-                        </a>
-                    </div>
-                    <div class="slide-item">
-                        <a href="https://hair-salon-riche.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
-                            <div class="work-img"><img src="images/hair-salon-riche.jpg" alt=""></div>
-                            <div class="work-info"><h3>Hair Salon RICHE</h3></div>
-                        </a>
-                    </div>
-                    <div class="slide-item">
-                        <a href="https://trattoria-sole-three.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
-                            <div class="work-img"><img src="images/trattoria-sole.avif" alt=""></div>
-                            <div class="work-info"><h3>Trattoria SOLE</h3></div>
-                        </a>
-                    </div>
-                    <div class="slide-item">
-                        <a href="https://next-bridge.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
-                            <div class="work-img"><img src="images/next-bridge.avif" alt=""></div>
-                            <div class="work-info"><h3>NEXT BRIDGE</h3></div>
-                        </a>
-                    </div>
-                    <div class="slide-item">
-                        <a href="https://cafe-blossom.vercel.app" class="work-card" target="_blank" rel="noopener noreferrer">
-                            <div class="work-img"><img src="images/cafe-blossom.jpg" alt=""></div>
-                            <div class="work-info"><h3>Cafe Blossom</h3></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 制作サンプル 詳細カード -->
-            <div class="container fade-in">
-                <div class="works-detail-grid">
-                    <div class="work-detail-card">
+                        <div class="work-detail-body">
+                            <small>Webデザイン・実装</small><h3>Hair Salon RICHE</h3>
+                            <p>落ち着いた時間を過ごしたい人に向けた美容室のサイト。写真と余白でサロンの雰囲気を伝え、来店を考えた瞬間に予約先が見つかる構成にしました。</p>
+                            <a href="https://hair-salon-riche.vercel.app" class="btn work-detail-btn" target="_blank" rel="noopener noreferrer">サイトを見る<span class="arrow">→</span></a>
+                        </div>
+                    </article></div></section><section class="paper" id="works"><small>SELECTED WORK</small><div class="railHead"><div><h2>制作サンプル</h2><p>自主制作の8作品。気になる作品を選ぶと、実際の画面や設計の意図を確認できます。</p></div><div class="railNav"><button type="button" id="back" aria-label="前の作品">‹</button><button type="button" id="railPause">一覧を停止</button><button type="button" id="forward" aria-label="次の作品">›</button></div></div><div class="rail" aria-label="作品一覧"><div class="track"><div class="sequence"><a class="railCard" href="works/night-atlas/index.html"><img src="works/night-atlas/film-poster.jpg" alt=""><span><small>光のインタラクション</small><b>Night Atlas</b></span></a><a class="railCard" href="works/fleur/index.html"><img src="works/fleur/media/film-poster.jpg" alt=""><span><small>広告・商品LP</small><b>Fleur</b></span></a><a class="railCard" href="works/format-studio/index.html"><span class="mini format">Aa</span><span><small>画像制作アプリ</small><b>Format Studio</b></span></a><a class="railCard" href="#web-0"><img src="images/urban-closet.avif" alt=""><span><small>Webデザイン</small><b>URBAN CLOSET</b></span></a><a class="railCard" href="#web-1"><img src="images/hair-salon-riche.jpg" alt=""><span><small>Webデザイン</small><b>Hair Salon RICHE</b></span></a><a class="railCard" href="#web-2"><img src="images/trattoria-sole.avif" alt=""><span><small>Webデザイン</small><b>Trattoria SOLE</b></span></a><a class="railCard" href="#web-3"><img src="images/next-bridge.avif" alt=""><span><small>Webデザイン</small><b>NEXT BRIDGE</b></span></a><a class="railCard" href="#web-4"><img src="images/cafe-blossom.jpg" alt=""><span><small>Webデザイン</small><b>Cafe Blossom</b></span></a></div></div></div><article class="feature"><div><small>INTERACTIVE ART　/　自主制作</small><h3>Night Atlas.</h3><p>稜線を歩く旅人が、空から届く光に気づく。10秒の短編と、三つの夜空を切り替えられるインタラクティブ作品です。</p><a class="primary" href="works/night-atlas/index.html">短編と夜空を見る</a></div></article><h3 class="webHeading">Webデザインの制作事例</h3><div class="grid">
+                    <div id="web-0" class="work-detail-card">
                         <a href="https://urban-closet.vercel.app" class="work-detail-img" target="_blank" rel="noopener noreferrer">
                             <img src="images/urban-closet.avif" alt="URBAN CLOSET サイトキャプチャ">
                         </a>
@@ -142,22 +23,7 @@
                             <a href="https://urban-closet.vercel.app" class="btn work-detail-btn" target="_blank" rel="noopener noreferrer">サイトを見る<span class="arrow">→</span></a>
                         </div>
                     </div>
-                    <div class="work-detail-card">
-                        <a href="https://hair-salon-riche.vercel.app" class="work-detail-img" target="_blank" rel="noopener noreferrer">
-                            <img src="images/hair-salon-riche.jpg" alt="Hair Salon RICHE サイトキャプチャ">
-                        </a>
-                        <div class="work-detail-body">
-                            <h3>Hair Salon RICHE</h3>
-                            <p class="work-target">上質な時間を求める30〜40代女性向けの美容室を想定</p>
-                            <ul class="work-points">
-                                <li><span>デザイン意図</span>落ち着いた配色と大きめの写真で、サロンの高級感・清潔感を表現</li>
-                                <li><span>担当範囲</span>デザイン / コーディング / レスポンシブ対応</li>
-                                <li><span>技術的工夫</span>予約・お問い合わせへの導線を意識したCTA配置とスクロールアニメーション</li>
-                            </ul>
-                            <a href="https://hair-salon-riche.vercel.app" class="btn work-detail-btn" target="_blank" rel="noopener noreferrer">サイトを見る<span class="arrow">→</span></a>
-                        </div>
-                    </div>
-                    <div class="work-detail-card">
+                    <div id="web-2" class="work-detail-card">
                         <a href="https://trattoria-sole-three.vercel.app" class="work-detail-img" target="_blank" rel="noopener noreferrer">
                             <img src="images/trattoria-sole.avif" alt="Trattoria SOLE サイトキャプチャ">
                         </a>
@@ -172,7 +38,7 @@
                             <a href="https://trattoria-sole-three.vercel.app" class="btn work-detail-btn" target="_blank" rel="noopener noreferrer">サイトを見る<span class="arrow">→</span></a>
                         </div>
                     </div>
-                    <div class="work-detail-card">
+                    <div id="web-3" class="work-detail-card">
                         <a href="https://next-bridge.vercel.app" class="work-detail-img" target="_blank" rel="noopener noreferrer">
                             <img src="images/next-bridge.avif" alt="NEXT BRIDGE サイトキャプチャ">
                         </a>
@@ -187,7 +53,7 @@
                             <a href="https://next-bridge.vercel.app" class="btn work-detail-btn" target="_blank" rel="noopener noreferrer">サイトを見る<span class="arrow">→</span></a>
                         </div>
                     </div>
-                    <div class="work-detail-card">
+                    <div id="web-4" class="work-detail-card">
                         <a href="https://cafe-blossom.vercel.app" class="work-detail-img" target="_blank" rel="noopener noreferrer">
                             <img src="images/cafe-blossom.jpg" alt="Cafe Blossom サイトキャプチャ">
                         </a>
@@ -202,227 +68,7 @@
                             <a href="https://cafe-blossom.vercel.app" class="btn work-detail-btn" target="_blank" rel="noopener noreferrer">サイトを見る<span class="arrow">→</span></a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 自己紹介 (About) -->
-        <section id="about" class="about section">
-            <div class="container fade-in">
-                <div class="section-header">
-                    <h2 class="section-title">自己紹介</h2>
-                    <p class="section-sub">私についてのご紹介と、大切にしている想いです。</p>
-                </div>
-                <div class="about-card">
-                    <p>
-                        はじめまして、北海道を拠点に活動している Yasu と申します。<br>
-                        HTML / CSS を軸に、無駄を省いた「ミニマルで見やすいWebサイト」の制作を得意としています。
-                    </p>
-                    <p>
-                        これまでにクローンサイト制作を通じて、<br>
-                        デザインの再現性から細部のあしらいまで、確かなスキルを磨いてまいりました。
-                    </p>
-                    <p>
-                        最新のAIツールを開発プロセス（コード品質チェックやバグの事前検知など）に導入することで、制作スピードと品質を大幅に向上させています。<br>
-                        その分、お客様との丁寧なコミュニケーションや、売上に直結するデザインのブラッシュアップに多くの時間を割く体制を整えております。
-                    </p>
-                    <p>
-                        ただ見栄えが良いだけでなく、長く愛される高品質なWebサイトをお届けいたします。<br>
-                        どんな小さなご相談でも、どうぞお気軽にお声がけください。
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 制作の流れ (Flow) -->
-        <section id="flow" class="flow section">
-            <div class="container fade-in">
-                <div class="section-header">
-                    <h2 class="section-title">制作の流れ</h2>
-                    <p class="section-sub">お問い合わせから納品までのステップです。</p>
-                </div>
-                <div class="flow-list">
-                    <div class="flow-card">
-                        <div class="flow-icon">01</div>
-                        <div class="flow-text">
-                            <h3>お問い合わせ</h3>
-                            <p>フォームよりお気軽にご連絡ください。</p>
-                        </div>
-                    </div>
-                    <div class="flow-card">
-                        <div class="flow-icon">02</div>
-                        <div class="flow-text">
-                            <h3>ヒアリング</h3>
-                            <p>ご要望やイメージを丁寧に伺います。<br>
-                            <span class="flow-note">※Zoom等のオンライン面談、またはテキストチャットなど、お客様のご希望に合わせて柔軟に対応いたします。</span></p>
-                        </div>
-                    </div>
-                    <div class="flow-card">
-                        <div class="flow-icon">03</div>
-                        <div class="flow-text">
-                            <h3>デザイン作成</h3>
-                            <p>ミニマルで見やすいデザインをご提案いたします。</p>
-                        </div>
-                    </div>
-                    <div class="flow-card">
-                        <div class="flow-icon">04</div>
-                        <div class="flow-text">
-                            <h3>コーディング</h3>
-                            <p>「丁寧に、速く」を念頭に実装を行います。</p>
-                        </div>
-                    </div>
-                    <div class="flow-card">
-                        <div class="flow-icon">05</div>
-                        <div class="flow-text">
-                            <h3>納品</h3>
-                            <p>最終確認後、完成データをお渡しいたします。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 料金目安 (Pricing) -->
-        <section id="pricing" class="pricing section">
-            <div class="container fade-in">
-                <div class="section-header">
-                    <h2 class="section-title">料金目安</h2>
-                    <p class="section-sub">お客様のご要望に合わせて、柔軟にプランをご提案いたします。まずはお気軽にご相談ください。</p>
-                </div>
-                <div class="pricing-list">
-                    <div class="pricing-card">
-                        <h3>LP(ランディングページ)制作</h3>
-                        <p class="price">30,000円〜</p>
-                        <p class="desc">シンプルな1ページ構成のLPです。店舗様・個人事業主様向けのシンプルなサイトに最適です。</p>
-                        <p class="pricing-tag">「新商品の認知度を上げたい」「Webからの問い合わせ・お申し込みを増やしたい」個人事業主様へ</p>
-                    </div>
-                    <div class="pricing-card">
-                        <h3>コーポレートサイト制作</h3>
-                        <p class="price">50,000円〜</p>
-                        <p class="desc">複数ページで構成する企業・お店のWebサイトです。ページ数やご要望に応じてお見積りいたします。</p>
-                        <p class="pricing-tag">「名刺代わりにしっかりとした自社サイトがほしい」「スマホ対応していなくて困っている」店舗様へ</p>
-                    </div>
-                    <div class="pricing-card">
-                        <h3>修正・保守対応</h3>
-                        <p class="price">5,000円〜</p>
-                        <p class="desc">既存サイトの文言修正・画像差し替えなどの軽微な修正に対応いたします。</p>
-                    </div>
-                </div>
-                <p class="pricing-note">※上記はあくまで目安です。内容によって前後しますので、まずはお気軽にご相談・お見積りください。</p>
-            </div>
-        </section>
-
-        <!-- よくある質問 (FAQ) -->
-        <section id="faq" class="faq section">
-            <div class="container fade-in">
-                <div class="section-header">
-                    <h2 class="section-title">よくある質問</h2>
-                    <p class="section-sub">お客様からよくいただくご質問です。</p>
-                </div>
-                <div class="faq-list">
-                    <div class="faq-card">
-                        <div class="faq-q">
-                            <div class="faq-q-text">
-                                <span class="q-icon">Q</span>
-                                <h3>料金はどのように決まりますか？</h3>
-                            </div>
-                            <span class="faq-toggle"></span>
-                        </div>
-                        <div class="faq-a">
-                            <div class="faq-a-inner">
-                                <span class="a-icon">A</span>
-                                <p>ページ数・機能・デザインの複雑さによって変動いたします。ヒアリングの上、ご予算に応じたプランをご提案させていただきますので、まずはお気軽にご相談ください。</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="faq-card">
-                        <div class="faq-q">
-                            <div class="faq-q-text">
-                                <span class="q-icon">Q</span>
-                                <h3>相談だけでも可能ですか？</h3>
-                            </div>
-                            <span class="faq-toggle"></span>
-                        </div>
-                        <div class="faq-a">
-                            <div class="faq-a-inner">
-                                <span class="a-icon">A</span>
-                                <p>はい、可能です。ご相談やお見積もりは無料で承っております。まずはお気軽にお悩みをお聞かせください。</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="faq-card">
-                        <div class="faq-q">
-                            <div class="faq-q-text">
-                                <span class="q-icon">Q</span>
-                                <h3>まだ内容が固まっていないのですが依頼できますか？</h3>
-                            </div>
-                            <span class="faq-toggle"></span>
-                        </div>
-                        <div class="faq-a">
-                            <div class="faq-a-inner">
-                                <span class="a-icon">A</span>
-                                <p>もちろん大丈夫です。丁寧なヒアリングを通じて、お客様の「こうしたい」というイメージを一緒に形にしていきますので、ご安心ください。</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="faq-card">
-                        <div class="faq-q">
-                            <div class="faq-q-text">
-                                <span class="q-icon">Q</span>
-                                <h3>制作期間はどれくらいかかりますか？</h3>
-                            </div>
-                            <span class="faq-toggle"></span>
-                        </div>
-                        <div class="faq-a">
-                            <div class="faq-a-inner">
-                                <span class="a-icon">A</span>
-                                <p>制作する内容にもよりますが、おおよそ一週間から三週間ほどいただいております。お急ぎの場合は、スケジュールに合わせて柔軟に対応いたします。</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="faq-card">
-                        <div class="faq-q">
-                            <div class="faq-q-text">
-                                <span class="q-icon">Q</span>
-                                <h3>修正は何回まで可能ですか？</h3>
-                            </div>
-                            <span class="faq-toggle"></span>
-                        </div>
-                        <div class="faq-a">
-                            <div class="faq-a-inner">
-                                <span class="a-icon">A</span>
-                                <p>基本的に3回まで無料で対応しております。それ以降も、ご納得いただけるまで誠実に対応させていただきますので、その都度ご相談ください。</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="faq-card">
-                        <div class="faq-q">
-                            <div class="faq-q-text">
-                                <span class="q-icon">Q</span>
-                                <h3>納品後のサポートはありますか？</h3>
-                            </div>
-                            <span class="faq-toggle"></span>
-                        </div>
-                        <div class="faq-a">
-                            <div class="faq-a-inner">
-                                <span class="a-icon">A</span>
-                                <p>はい、ございます。納品後1ヶ月間は、万が一の表示崩れやバグが見つかった場合、無料で修正対応いたします。操作方法についてのご質問にも引き続きお答えいたしますので、ご安心ください。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- お問い合わせ (Contact) -->
-        <section id="contact" class="contact section">
-            <div class="container fade-in">
-                <div class="section-header">
-                    <h2 class="section-title">お問い合わせ</h2>
-                    <p class="section-sub">ご相談やお見積りは無料です。お気軽にどうぞ。</p>
-                </div>
-                <div class="contact-card">
-                    <form id="contact-form" action="https://formspree.io/f/xlgawkgn" method="POST">
+                </div></section><section class="labs" id="labs"><small>APPLICATION</small><h2>広告制作を助けるアプリ</h2><div class="appCase"><article><div class="planner"><small>FORMAT STUDIO</small><h3>広告サイズを選ぶ</h3><div class="screen"><b id="frame">Fleur.</b></div><label>配信フォーマット<select id="ratio"><option value="9/16">縦型　9 ∶ 16</option><option value="1/1">正方形　1 ∶ 1</option><option value="16/9">横型　16 ∶ 9</option></select></label></div><h3>Format Studio / 広告制作ツール</h3><p>同じ商品の広告を複数の配信先に用意する手間を減らすツール。商品名とコピーを入力し、サイズ・配色を選ぶと、そのまま配信用のPNGを保存できます。</p><a class="primary" href="works/format-studio/index.html">画像を作ってみる</a></article></div></section><section class="paper" id="studio"><small>STUDIO</small><h2>北海道から、Yasuです。</h2><p>北海道を拠点に、Webデザインと実装を手がけています。お店のページを作るとき、最初に考えるのは、初めて訪れた人が何を知りたいか。写真を大きく見せる場所も、予約ボタンを置く位置も、その人の目線で決めています。</p><p>同じ商品でも、広告では最初の一瞬に目が留まること、アプリでは次の操作が自然にわかることを大切にしています。このページでは、その違いを実際に見て、触っていただけるようにしました。</p><p>ご相談の段階では、仕様書がなくても大丈夫です。「この商品の魅力が伝わりにくい」「この作業に時間がかかる」といったお話から、必要な画面や表現を一緒に考えます。</p><details name="studio-info"><summary>Web制作の料金と進め方</summary><p>LP制作 30,000円〜 ／ コーポレートサイト 50,000円〜 ／ 修正・保守 5,000円〜。</p><p>ヒアリング後にお見積りし、デザイン確認、実装、納品の順に進めます。広告動画・アプリ開発は内容に応じて個別にお見積りします。</p></details><details name="studio-info"><summary>料金はどのように決まりますか？</summary><p>ページ数・機能・デザインの複雑さによって変動いたします。ヒアリングの上、ご予算に応じたプランをご提案させていただきますので、まずはお気軽にご相談ください。</p></details><details name="studio-info"><summary>相談だけでも可能ですか？</summary><p>はい、可能です。ご相談やお見積もりは無料で承っております。まずはお気軽にお悩みをお聞かせください。</p></details><details name="studio-info"><summary>まだ内容が固まっていないのですが依頼できますか？</summary><p>もちろん大丈夫です。丁寧なヒアリングを通じて、お客様の「こうしたい」というイメージを一緒に形にしていきますので、ご安心ください。</p></details><details name="studio-info"><summary>制作期間はどれくらいかかりますか？</summary><p>制作する内容にもよりますが、おおよそ一週間から三週間ほどいただいております。お急ぎの場合は、スケジュールに合わせて柔軟に対応いたします。</p></details><details name="studio-info"><summary>修正は何回まで可能ですか？</summary><p>基本的に3回まで無料で対応しております。それ以降も、ご納得いただけるまで誠実に対応させていただきますので、その都度ご相談ください。</p></details><details name="studio-info"><summary>納品後のサポートはありますか？</summary><p>はい、ございます。納品後1ヶ月間は、万が一の表示崩れやバグが見つかった場合、無料で修正対応いたします。操作方法についてのご質問にも引き続きお答えいたしますので、ご安心ください。</p></details></section><section id="contact"><small>CONTACT</small><h2>制作のご相談</h2><p>作りたいものや、今お困りのことをお聞かせください。</p><form id="contact-form" action="https://formspree.io/f/xlgawkgn" method="POST">
                         <div class="form-group">
                             <label for="name">お名前</label>
                             <input type="text" id="name" name="name" required placeholder="例：山田 太郎">
@@ -432,7 +78,7 @@
                             <input type="email" id="email" name="email" required placeholder="例：yourname@example.com">
                         </div>
                         <div class="form-group">
-                            <label for="message">メッセージ</label>
+                            <label for="service">ご相談の分野</label><select name="service" id="service"><option>デザイン・Web制作</option><option>広告動画</option><option>アプリ開発</option><option>まとめて相談</option></select><label for="message">メッセージ</label>
                             <textarea id="message" name="message" rows="6" required
                                 placeholder="お問い合わせ内容をご入力ください"></textarea>
                         </div>
@@ -446,30 +92,4 @@
                     <div class="form-feedback form-feedback-success" id="contact-form-success" role="status" hidden>
                         <strong>お問い合わせありがとうございました。</strong>
                         内容を確認の上、2営業日以内にご連絡いたします。
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- フッター -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Yasu Portfolio</p>
-        </div>
-    </footer>
-
-    <!-- 3D演出・スクロールアニメーション用ライブラリ -->
-    <script type="importmap">
-    {
-        "imports": {
-            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
-        }
-    }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script type="module" src="script.js"></script>
-</body>
-
-</html>
+                    </div></section></main><footer>© Yasu Portfolio</footer><script defer src="script.js"></script></body></html>

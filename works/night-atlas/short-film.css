@@ -1,0 +1,5 @@
+.shortFilm {padding:clamp(28px,5vw,78px) 6vw;background:linear-gradient(155deg,#111f30,#080e18);color:#edf3fb}
+.shortFilm>div,.shortFilm video {width:100%;max-width:1120px;margin-inline:auto}
+.shortFilm h1 {font-style:italic;font-size:clamp(58px,8vw,116px);margin:.17em 0}
+.shortFilm video {display:block;aspect-ratio:2/1;background:#101c2e;margin-top:24px}
+.stage h2 {font-size:clamp(40px,6vw,78px);margin:12px 0}
