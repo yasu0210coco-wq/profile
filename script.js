@@ -91,13 +91,13 @@ function draw(now=0){
     cancelAnimationFrame(tick);
     if(previous && moving) time+=Math.min(now-previous,60)*.00045;
     previous=now;
-    const w=canvas.clientWidth,h=canvas.clientHeight,d=Math.min(devicePixelRatio,2);
+    const w=canvas.clientWidth,h=canvas.clientHeight,d=Math.min(devicePixelRatio,w<=720?1.25:2);
     if(canvas.width!==Math.round(w*d)||canvas.height!==Math.round(h*d)){
         canvas.width=Math.round(w*d);canvas.height=Math.round(h*d);
     }
     ctx.setTransform(d,0,0,d,0,0);
     ctx.clearRect(0,0,w,h);
-    const narrow=w<=720, x=w*(narrow?.70:.73), y=h*(narrow?.22:.49), size=Math.min(w*(narrow?.27:.20),h*.37);
+    const narrow=w<=720, x=w*(narrow?.77:.73), y=h*(narrow?.24:.49), size=Math.min(w*(narrow?.17:.20),h*.37);
     for(let i=0;i<38;i++){
         const px=w*((Math.sin(i*913.2)*435.8)%1+1)%w;
         const py=((i*.618+time*.007)%1)*h;
@@ -158,7 +158,7 @@ const duplicate = sequence.cloneNode(true);
 duplicate.setAttribute('aria-hidden','true');
 duplicate.querySelectorAll('a').forEach(link=>link.tabIndex=-1);
 rail.querySelector('.track').append(duplicate);
-let railPaused = reduced.matches;
+let railPaused = reduced.matches || matchMedia("(max-width: 720px)").matches;
 let railVisible = false;
 let railTask = 0;
 let railTime = 0;

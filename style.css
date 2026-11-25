@@ -36,3 +36,27 @@
 .appCase .planner {grid-row:span 3}
 .appCase .primary {justify-self:start}
 @media(max-width:720px){.leadPair,.appCase article{display:block}.leadCase+.leadCase{margin-top:42px}.appCase .planner{margin-bottom:22px}}
+
+.mobile-label,.swipe-hint{display:none}
+.keep-line,.pill{white-space:nowrap}
+.sns{border-top:1px solid #c7c6b9}
+.sns h2{max-width:22em}.sns>p,.sns ul{max-width:58em}
+.sns-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:32px 0}
+.sns-cards article{border-top:3px solid #62684b;background:#ebeadd;padding:20px}
+.sns-cards h3{font-size:1.1rem;overflow-wrap:anywhere;margin:0}
+.sns a,.crowd a{text-decoration:underline;text-underline-offset:.23em}
+.sns li+li{margin-top:.6em}.sns ul{padding-left:1.35em}
+.crowd{padding:24px 7vw;background:#dedfce;color:#292c20}.crowd p{margin:0 0 4px}
+@media(max-width:720px){
+ header nav>a:not(.pill),.desktop-label{display:none}
+ .mobile-label,.swipe-hint{display:inline}
+ header nav .pill{min-height:44px;display:grid;place-items:center;padding-inline:18px}
+ .hero{min-height:0;align-items:center}
+ .heroText{padding:clamp(72px,14svh,104px) 6vw 52px}
+ .heroText>*{animation:none}.hero h1{font-size:clamp(64px,17vw,86px);margin:16px 0}
+ .heroText p{margin:16px 0}.hero button{bottom:8px}
+ .railNav button{min-width:44px;min-height:44px}.railCard{width:calc(88vw - 44px)}
+ .swipe-hint{display:block;font-size:.875rem;margin:14px 0 0}.rail{margin-top:8px}
+ .sns-cards{grid-template-columns:1fr}
+ .leadCase .caseLink,.leadCase #play{min-height:44px}
+}
