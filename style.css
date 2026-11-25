@@ -60,3 +60,5 @@
  .sns-cards{grid-template-columns:1fr}
  .leadCase .caseLink,.leadCase #play{min-height:44px}
 }
+
+.carousel-demo{display:grid;align-items:center;grid-template-columns:1.1fr 1fr;gap:4vw;margin-bottom:30px}.carousel-demo img{width:100%;height:auto;display:block}.carousel-demo h3{font-size:clamp(22px,2.4vw,36px)}@media(max-width:720px){.carousel-demo{grid-template-columns:1fr}}

@@ -117,9 +117,6 @@ new ResizeObserver(()=>draw()).observe(canvas);
 new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;previous=0;draw()}).observe(canvas);
 document.addEventListener('visibilitychange',()=>{previous=0;draw()});
 
-document.querySelector('#ratio').onchange=event=>{
-    document.querySelector('#frame').style.aspectRatio=event.target.value;
-};
 const play = document.querySelector('#play');
 const film = document.querySelector('#campaign-film');
 play.onclick = async () => {
