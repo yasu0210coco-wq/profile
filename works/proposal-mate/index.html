@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>ProposalMate｜提案文ジェネレータ</title><link rel="stylesheet" href="studio.css"><script defer src="editor.js"></script></head>
+<body><header><a href="../../index.html#proposal-mate">Yasu / ポートフォリオ</a><a href="#draft">下書きへ</a></header><main>
+<h1>Proposal<i>Mate.</i></h1><h2>提案文ジェネレータ</h2><p>案件の募集文を貼り付けると、応募先が指定した項目に沿って提案文を組み立てます。</p>
+<p class="privacy">入力した文章はブラウザ内だけで処理し、保存・送信しません。</p>
+<section><div class="bar"><h2>案件の募集文</h2><button id="sample" type="button">サンプルで試す</button></div>
+<label for="job">募集文を全文貼り付け</label><textarea id="job" rows="7" placeholder="応募方法や、応募時に回答する項目を含めて貼り付けてください。" autocomplete="off"></textarea>
+<h3>応募項目</h3><p id="extracted" role="status"></p><ol id="items"></ol><button id="add">＋ 項目を追加</button></section>
+<section><h2>応募者の情報</h2><label for="profile">プロフィール要約</label><textarea rows="5" id="profile">Instagram・Threadsのアカウント3つ（暮らし・美容・スイーツ）を2026年10月から毎日運用しています。投稿文の作成、カルーセルやリールの制作、投稿管理、楽天ROOMやnoteへの導線整備、数値の確認まで一貫して対応しています。買っていない商品の使用感は書かないなど、誠実な運用を心がけています。</textarea>
+<div class="identity"><label>名前<input id="name" value="大島康之"></label><label>年齢<input id="age" value="37歳"></label><label>居住地<input id="place" value="北海道"></label></div>
+<label for="hours">稼働条件</label><textarea id="hours" rows="2">週10〜20時間ほど。平日夜と休日が中心で、メッセージには当日中に返信します</textarea>
+<label for="price">金額の出し方</label><select id="price"><option value="consult">相談してから金額を提案</option><option value="range">募集条件の範囲で提示</option><option value="amount">希望額を入力</option></select>
+<label id="amountLabel" hidden>希望額（円）<input id="amount" inputmode="numeric" placeholder="例：5000"></label>
+<button class="primary" id="generate">提案文を作る</button><span role="status" id="notice"></span></section>
+<section id="draft"><div class="bar"><h2>提案文の下書き</h2><span id="count">0文字</span></div>
+<p>各欄で文面を仕上げてからコピーできます。［ ］はご自身の言葉に置き換えてください。</p><div id="sections"></div><button id="copyAll" disabled>全文をコピー</button><p id="feedback" role="status"></p></section>
+</main></body></html>
